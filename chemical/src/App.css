@@ -73,11 +73,12 @@ body {
 .materials-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin-left: -70px;
+  gap: 50px;
+  margin-left: -100px;
 }
 
 .material-card {
+  width: 100%;
   background-color: #1f2833;
   padding: 15px;
   border-radius: 10px;
