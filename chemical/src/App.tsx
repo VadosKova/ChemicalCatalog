@@ -28,6 +28,30 @@ const App: React.FC = () => {
     inputRef.current?.focus();
   }, []);
 
+  const findMaterials = useCallback(async () => {
+    if (!query.trim()) return;
+    setLoading(true);
+    setError("");
+    setMaterials([]);
+
+    try {
+      const { data } = await axios.get(API_URL, {
+        params: { filter: `chemical_formula="${query}"` },
+      });
+
+      if (data.data.length === 0) {
+        setError("Materials not found");
+      } else {
+        setMaterials(data.data);
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Error");
+    } finally {
+      setLoading(false);
+    }
+  }, [query]);
+
   return (
     
   );
