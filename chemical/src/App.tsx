@@ -52,6 +52,10 @@ const App: React.FC = () => {
     }
   }, [query]);
 
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") findMaterials();
+  };
+
   return (
     
   );
