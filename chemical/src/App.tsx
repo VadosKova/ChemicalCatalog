@@ -24,7 +24,9 @@ const App: React.FC = () => {
   const [error, setError] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
-  
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   return (
     
