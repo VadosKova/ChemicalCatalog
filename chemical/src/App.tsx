@@ -17,13 +17,18 @@ interface Material {
 
 const API_URL = "https://optimade.materialsproject.org/v1/materials";
 
-function App() {
+const App: React.FC = () => {
+  const [query, setQuery] = useState("");
+  const [materials, setMaterials] = useState<Material[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  
 
   return (
-    <>
-      
-    </>
-  )
-}
+    
+  );
+};
 
 export default App
