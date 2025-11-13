@@ -15,7 +15,7 @@ interface Material {
   };
 }
 
-const API_URL = "https://nomad-lab.eu/prod/rae/optimade/v1/materials";
+const API_URL = "https://nomad-lab.eu/prod/rae/optimade/v1/structures";
 
 const App: React.FC = () => {
   const [query, setQuery] = useState("");
