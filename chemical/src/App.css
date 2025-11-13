@@ -52,3 +52,27 @@ body {
 .error {
   color: #e30000;
 }
+
+.materials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.material-card {
+  background-color: #1f2833;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(102, 252, 241, 0.2);
+  transition: transform 0.3s;
+}
+
+.material-card:hover {
+  transform: scale(1.03);
+}
+
+.material-card a {
+  color: #66fcf1;
+  text-decoration: none;
+  font-weight: bold;
+}
