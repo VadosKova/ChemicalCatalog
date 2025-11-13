@@ -57,7 +57,26 @@ const App: React.FC = () => {
   };
 
   return (
-    
+    <div className="app">
+      <h1>OPTIMADE Catalog</h1>
+
+      <div className="search-box">
+        <input
+          ref={inputRef}
+          type="text"
+          placeholder="Enter chemical formula "
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyPress={handleKeyPress}
+        />
+        <button onClick={findMaterials}>Search</button>
+      </div>
+
+      {loading && <p className="loading">Loading...</p>}
+      {error && <p className="error">{error}</p>}
+
+      
+    </div>
   );
 };
 
