@@ -1,7 +1,54 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  background-color: #0b0c10;
+  color: #c5c6c7;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.app {
+  width: 90%;
+  max-width: 800px;
   text-align: center;
 }
 
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.search-box input {
+  flex: 1;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #45a29e;
+  background-color: #1f2833;
+  color: white;
+}
+
+.search-box button {
+  background-color: #45a29e;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-box button:hover {
+  background-color: #66fcf1;
+  color: #0b0c10;
+}
+
+.loading {
+  color: #05db1e;
+}
+
+.error {
+  color: #e30000;
+}
