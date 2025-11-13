@@ -15,7 +15,7 @@ interface Material {
   };
 }
 
-const API_URL = "https://optimade.materialsproject.org/v1/materials";
+const API_URL = "https://nomad-lab.eu/prod/rae/optimade/v1/materials";
 
 const App: React.FC = () => {
   const [query, setQuery] = useState("");
@@ -36,7 +36,10 @@ const App: React.FC = () => {
 
     try {
       const { data } = await axios.get(API_URL, {
-        params: { filter: `chemical_formula="${query}"` },
+        params: {
+          filter: `chemical_formula_reduced="${query}"`,
+          page_limit: 10,
+        },
       });
 
       if (data.data.length === 0) {
@@ -44,9 +47,9 @@ const App: React.FC = () => {
       } else {
         setMaterials(data.data);
       }
-    } catch (err) {
-      console.error(err);
-      setError("Error");
+    } catch (err: any) {
+      console.error(err.response?.data || err.message);
+      setError("Error: " + (err.response?.data?.errors?.[0]?.detail || err.message));
     } finally {
       setLoading(false);
     }
@@ -90,7 +93,7 @@ const App: React.FC = () => {
               <strong>Source:</strong> {m.type}
             </p>
             <a
-              href={`https://materialsproject.org/materials/${m.id}`}
+              href={`https://nomad-lab.eu/prod/rae/gui/entry/id/${m.id}`}
               target="_blank"
               rel="noreferrer"
             >
