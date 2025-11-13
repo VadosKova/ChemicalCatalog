@@ -58,7 +58,7 @@ const App: React.FC = () => {
 
   return (
     <div className="app">
-      <h1>OPTIMADE Catalog</h1>
+      <h2>OPTIMADE Catalog</h2>
 
       <div className="search-box">
         <input
@@ -75,7 +75,30 @@ const App: React.FC = () => {
       {loading && <p className="loading">Loading...</p>}
       {error && <p className="error">{error}</p>}
 
-      
+      <div className="materials-grid">
+        {materials.map((m) => (
+          <div key={m.id} className="material-card">
+            <h3>{m.attributes.chemical_formula_reduced}</h3>
+            <p>
+              <strong>Пространственная группа:</strong>{" "}
+              {m.attributes.symmetry?.space_group_symbol || "N/A"}
+            </p>
+            <p>
+              <strong>ID:</strong> {m.id}
+            </p>
+            <p>
+              <strong>Source:</strong> {m.type}
+            </p>
+            <a
+              href={`https://materialsproject.org/materials/${m.id}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open
+            </a>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
